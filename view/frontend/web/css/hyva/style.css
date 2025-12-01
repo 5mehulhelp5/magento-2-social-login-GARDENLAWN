@@ -204,7 +204,7 @@
     vertical-align: middle;
     touch-action: manipulation;
     cursor: pointer;
-    width: 275px;
+    width: 120px;
     user-select: none;
     background-image: none;
     border: 1px solid transparent;
@@ -1577,4 +1577,17 @@
 }
 .social-btn-actions-toolbar {
     display: inline-block;
+}
+/* Ustawienie 2 kolumn */
+.social-login-authentication-channel .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dwie równe kolumny */
+    gap: 10px; /* Odstęp między przyciskami */
+}
+
+/* Opcjonalnie: Na telefonach (ekrany mniejsze niż 600px) zostaw 1 kolumnę */
+@media (max-width: 600px) {
+    .social-login-authentication-channel .grid {
+        grid-template-columns: 1fr;
+    }
 }
