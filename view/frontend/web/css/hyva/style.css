@@ -805,14 +805,6 @@
     background-color: #fff
 }
 
-.btn-google .fa-google {
-    background: url("images/g-logo.png") no-repeat;
-}
-
-.btn-google .fa-google:before {
-    content: ""
-}
-
 .btn-instagram {
     color: #fff;
     background-color: #3f729b;
