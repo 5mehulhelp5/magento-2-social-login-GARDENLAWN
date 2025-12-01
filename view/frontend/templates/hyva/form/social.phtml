@@ -43,7 +43,7 @@ if ($block->canShow($position) && sizeof($availableSocials) && $helperData->isEn
         </div>
     </div>
     <div class="block social-login-authentication-channel account-social-login">
-        <div class="grid gap-3 grid-cols-1 sm:grid-cols-2">
+        <div class="grid gap-3">
             <?php foreach ($availableSocials as $key => $social): ?>
                 <div class="actions-toolbar social-btn social-btn-actions-toolbar <?= /* @noEscape */ $key ?>-login">
                     <a class="btn btn-block btn-social btn-<?= /* @noEscape */$block->getBtnKey($key) ?> social-login-btn w-full"

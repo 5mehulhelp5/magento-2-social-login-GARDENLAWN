@@ -1578,16 +1578,19 @@
 .social-btn-actions-toolbar {
     display: inline-block;
 }
-/* Ustawienie 2 kolumn */
+
 .social-login-authentication-channel .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Dwie równe kolumny */
-    gap: 10px; /* Odstęp między przyciskami */
+    /* Kluczowa linia: Twórz tyle kolumn po 120px, ile się zmieści */
+    grid-template-columns: repeat(auto-fill, 120px);   
+    /* Odstępy między kafelkami */
+    gap: 10px; 
+    justify-content: center;
 }
 
-/* Opcjonalnie: Na telefonach (ekrany mniejsze niż 600px) zostaw 1 kolumnę */
-@media (max-width: 600px) {
-    .social-login-authentication-channel .grid {
-        grid-template-columns: 1fr;
-    }
+/* Upewnij się, że same przyciski i ich kontenery trzymają wymiar */
+.social-login-authentication-channel .actions-toolbar,
+.social-login-authentication-channel .social-login-btn {
+    width: 100%; /* Wypełnia komórkę grida (czyli te 120px) */
+    max-width: 120px; /* Zabezpieczenie */
 }
