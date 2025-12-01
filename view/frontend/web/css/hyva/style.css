@@ -204,6 +204,7 @@
     vertical-align: middle;
     touch-action: manipulation;
     cursor: pointer;
+    width: 275px;
     user-select: none;
     background-image: none;
     border: 1px solid transparent;
@@ -1579,7 +1580,8 @@
     background-color: #fff
 }
 .account-social-login .actions-toolbar.social-btn {
-    width: 215px;
+    padding: inherit;
+    margin: auto;
 }
 .social-btn-actions-toolbar {
     display: inline-block;
