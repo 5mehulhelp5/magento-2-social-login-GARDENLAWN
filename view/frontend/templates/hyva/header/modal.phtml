@@ -260,7 +260,7 @@ $translateYvalue = $isGDPRTac ? '5%' : '30%' ;
 
 <script type="text/javascript">
     document.addEventListener('alpine:init', () => {
-        Alpine.data('mageplazaSocialLoginHyvaHeaderModal', () => ({
+        Alpine.data('mageplazaSocialLoginHyvaHeaderModal', window['mageplazaSocialLoginHyvaHeaderModal'] = () => ({
             ...hyva.modal(),
             init() {
                 window.openMyDialog = (event) => {

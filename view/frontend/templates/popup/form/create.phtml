@@ -29,7 +29,7 @@
         <div class="block-content">
             <?= $block->getChildHtml('form_fields_before') ?>
             <?= $block->getChildHtml('customer.form.register.extra') ?>
-            <form class="form-customer-create" id="social-form-create"  x-data="mageplazaSocialLoginHyvaPopupFormCreate"
+            <form class="form-customer-create" id="social-form-create"  x-data="mageplazaSocialLoginPopupFormCreate"
                   @submit.prevent="mageplazaSocialLoginHyvaPopupFormCreateSubmitPrevent12">
                 <fieldset class="fieldset create info">
                     <input type="hidden" name="success_url" value="<?= /* @noEscape */ $block->getSuccessUrl() ?>"/>
@@ -291,5 +291,15 @@
 <script>
 <?php /** Generated with hyva-csp-helper.php */ ?>
 window.addEventListener('alpine:init', () => Alpine.data('mageplazaSocialLoginHyvaPopupFormCreate', mageplazaSocialLoginHyvaPopupFormCreate), {once: true});
+</script>
+<?php $hyvaCsp->registerInlineScript() ?>
+<script>
+<?php /** Generated with hyva-csp-helper.php */ ?>
+function mageplazaSocialLoginPopupFormCreate() {
+    return Object.assign(
+        mageplazaSocialLoginHyvaPopupFormCreate.call(this)
+    )
+}
+window.addEventListener('alpine:init', () => Alpine.data('mageplazaSocialLoginPopupFormCreate', mageplazaSocialLoginPopupFormCreate), {once: true});
 </script>
 <?php $hyvaCsp->registerInlineScript() ?>

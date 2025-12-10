@@ -35,7 +35,7 @@
             <form
                     class="form-customer-login"
                     id="social-form-login"
-                    x-data="mageplazaSocialLoginHyvaPopupFormAuthentication"
+                    x-data="mageplazaSocialLoginPopupFormAuthentication"
                     @submit.prevent="mageplazaSocialLoginHyvaPopupFormAuthenticationSubmitPrevent11"
             >
                 <?= $block->getBlockHtml('formkey') ?>
@@ -311,5 +311,15 @@ function mageplazaSocialLoginHyvaPopupFormAuthentication() {
     )
 }
 window.addEventListener('alpine:init', () => Alpine.data('mageplazaSocialLoginHyvaPopupFormAuthentication', mageplazaSocialLoginHyvaPopupFormAuthentication), {once: true});
+</script>
+<?php $hyvaCsp->registerInlineScript() ?>
+<script>
+<?php /** Generated with hyva-csp-helper.php */ ?>
+function mageplazaSocialLoginPopupFormAuthentication() {
+    return Object.assign(
+        mageplazaSocialLoginHyvaPopupFormAuthentication.call(this)
+    )
+}
+window.addEventListener('alpine:init', () => Alpine.data('mageplazaSocialLoginPopupFormAuthentication', mageplazaSocialLoginPopupFormAuthentication), {once: true});
 </script>
 <?php $hyvaCsp->registerInlineScript() ?>
