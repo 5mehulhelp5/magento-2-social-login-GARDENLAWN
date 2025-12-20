@@ -20,6 +20,13 @@
  */
 
 /** @var \Mageplaza\SocialLogin\Block\Form\Login $block */
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\ReCaptcha;
+
+$viewModels = \Magento\Framework\App\ObjectManager::getInstance()->get(ViewModelRegistry::class);
+$recaptcha = $viewModels->require(ReCaptcha::class);
+$escaper = \Magento\Framework\App\ObjectManager::getInstance()->get(\Magento\Framework\Escaper::class);
 ?>
 
 <div class="social-login block-container authentication">
@@ -39,6 +46,7 @@
                     @submit.prevent="mageplazaSocialLoginHyvaPopupFormAuthenticationSubmitPrevent11"
             >
                 <?= $block->getBlockHtml('formkey') ?>
+                <?= $recaptcha->getInputHtml('customer_login', 'social-login-popup-authentication') ?>
                 <fieldset class="fieldset login" data-hasrequired="<?= /* @noEscape */ __('* Required Fields') ?>">
                     <?= $block->getChildHtml('form_before_login_fields') ?>
                     <div class="field email required">
@@ -183,6 +191,7 @@
                     .then(() => {
                         // do not rename $form, the variable is the expected name in the recaptcha output
                         const $form = document.querySelector('#social-form-login');
+                        <?= $recaptcha->getValidationJsHtml('customer_login', 'social-login-popup-authentication') ?>
                         if (this.errors === 0) {
                             // $form.submit();
                             removeMsg(".social-login.authentication .social-login-customer-authentication .block-content", "message-success success message");
@@ -206,6 +215,13 @@
                         'password': password,
                         'formKey': formKey
                     };
+
+                    const recaptchaTokenField = '<?= $escaper->escapeJs($recaptcha->getResultTokenFieldName('customer_login')) ?>';
+                    const recaptchaToken = form.querySelector('[name="' + recaptchaTokenField + '"]');
+                    if (recaptchaToken) {
+                        bodyFields[recaptchaTokenField] = recaptchaToken.value;
+                    }
+
                     appendLoading('.social-login.authentication .social-login-customer-authentication .block-content');
 
                     fetch(socialPopupForm.formLoginUrl, {
