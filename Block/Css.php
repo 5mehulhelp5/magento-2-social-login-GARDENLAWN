@@ -63,13 +63,13 @@ class Css extends Template
             if ($this->_helper->getPopupLogin()) {
                 $this->pageConfig->addPageAsset('Mageplaza_SocialLogin::css/style.css');
                 $this->pageConfig->addPageAsset('Mageplaza_Core::css/grid-mageplaza.css');
-                $this->pageConfig->addPageAsset('Mageplaza_Core::css/font-awesome.min.css');
+                $this->pageConfig->addRemotePageAsset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css', 'css');
                 $this->pageConfig->addPageAsset('Mageplaza_Core::css/magnific-popup.css');
             } else {
                 if (!$this->helper()->checkHyvaTheme()) {
                     $this->pageConfig->addPageAsset('Mageplaza_SocialLogin::css/style.css');
                 }
-                $this->pageConfig->addPageAsset('Mageplaza_Core::css/font-awesome.min.css');
+                $this->pageConfig->addRemotePageAsset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css', 'css');
             }
         }
 
